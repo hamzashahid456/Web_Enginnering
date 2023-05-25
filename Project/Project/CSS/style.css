@@ -1,0 +1,204 @@
+/* For Image Slider */
+.tslider {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.simg {
+  width: 105%;
+}
+
+
+/* The very top title of website*/
+h1 {
+	color: rgb(249, 253, 253);
+	font-size: 50px;
+  position: absolute; top: 40pt; left: 600pt;
+}
+
+div.container {
+  font-size: 20px;
+  height: 150px;
+  background-color: #f6a309;
+}
+
+img.logo{
+  position: absolute; top: 40pt; left: 268pt;
+}
+
+body{
+  padding: 9px;
+  justify-content: center;
+  border: 1px solid grey;
+  background-color: #333;
+  color: white;
+  font-family: Arial, sans-serif; /* set the font family */
+  padding: 20px; /* add some padding to the body */
+}
+
+/* For centering the website content */
+.content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* FAQs table styling */
+table {
+	border: none;
+  margin: auto;
+}
+th, td {
+	border: none;
+	background-color: #dddddd;
+	padding: 5px;
+	
+}
+
+/* Navbar styling */
+ul.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f6a309;
+}
+
+
+li.nav {
+  float: right;
+}
+
+li.logo {
+	float: left;
+}
+
+/* li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+} */
+
+li {
+  margin-bottom: 10px; /* add some margin between each list item */
+  background-color: #555; /* set the background color of each list item */
+  padding: 10px; /* add some padding to each list item */
+  border-radius: 5px; /* add some border radius to make the corners round */
+}
+a {
+  color: #fff; /* set the link color */
+  text-decoration: none; /* remove the underline from the link */
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+/* Navbar styling end here */
+
+.div { 
+display: grid;
+float: left;
+
+}
+
+/* For inlining the images*/
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* For responsive FAQ */
+.faq-content {
+  margin: 0 auto;
+}
+
+.faq-question {
+  padding: 20px 0;
+  border-bottom: 1px dotted #ccc;
+}
+
+.panel-title {
+  /* font-size: 24px; */
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 10px 10px 0 48px;
+  display: block;
+  cursor: pointer;
+}
+
+.panel-content {
+  /* font-size: 20px; */
+  padding: 0px 14px;
+  margin: 0 40px;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  position: relative;
+  opacity: 0;
+  -webkit-transition: .4s ease;
+  -moz-transition: .4s ease;
+  -o-transition: .4s ease;
+  transition: .4s ease;
+}
+
+.panel:checked ~ .panel-content{
+  height: auto;
+  opacity: 1;
+  padding: 14px;
+}
+
+.plus {
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 4px;
+  z-index: 5;
+  /* font-size: 42px; */
+  line-height: 100%;
+  -webkit-user-select: none;    
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-transition: .2s ease;
+  -moz-transition: .2s ease;
+  -o-transition: .2s ease;
+  transition: .2s ease;
+}
+
+.panel:checked ~ .plus {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.panel {
+  display: none;
+}
+
+/* For the footer */
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #f6a309;
+}
+
+/* ul for the Questions page */
+
+
