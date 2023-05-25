@@ -1,0 +1,139 @@
+body{
+    
+    justify-content: center;
+    border: px solid grey;
+  }
+
+
+article {
+    padding: 5px;
+    border: 3px;
+    margin-top: 5px;
+}
+
+header {
+    padding: 0px;
+    text-align: center;
+}
+
+aside {
+    
+    padding: 5px;
+    text-align: center;
+}
+
+section {
+    padding: 5px;
+    border: 3px #002600;
+    margin-top: 5px;
+}
+
+footer {
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+    font-weight: bold;
+    background-color: #333;
+    color: white;
+    height: 50px;
+    width: 100%;
+    
+}
+
+footer p{
+    margin:15px;
+}
+
+div.left {
+    width:70%;
+    float: left;
+}
+
+div.right {
+    width:30%;
+    float: right;
+}
+
+
+
+
+
+/* Navbar styling */
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  
+  li.nav {
+    float: left;
+  }
+
+  li.navRight {
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+
+
+  /* For centering the web content */
+  .content {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+
+
+  /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    div.left {
+        float: none;
+    }
+    
+    div.right {
+        float: none;
+    }
+
+    footer {
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        background-color: #333;
+    }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    div.left {
+        width:70%;
+        float: left;
+    }
+    
+    div.right {
+        width:30%;
+        float: right;
+    }
+
+    footer {
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task 1</title>
+    <style>
+        .ss2{
+            color: lightblue;
+        }
+    </style>
+    <!-- For showing welcome message -->
+    <script src="jquery/jquery.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            // For showing welcome message
+            $("#showWelccome").click(function () {
+                $("h1").html("Welcome");
+            });
+
+            // For changing background color
+            $("input").click(function () {
+                $(this).css("background-color", "lightblue");
+            });
+
+            // For copying style of element 
+            $("#btn").click(function () {
+                $(".ss1").toggleClass("ss2");
+            });
+                
+        });
+    </script>
+</head>
+<body>
+    <h1></h1>
+    <button id="showWelccome">Click me</button>
+    <br>
+    <br>
+    <br>
+
+    <!-- Input boxes -->
+    <input type="text" id="box"><br>
+    <input type="text" id="box"><br>
+    <input type="text" id="box"><br>
+    <input type="text" id="box"><br>
+    <input type="text" id="box"><br>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Two diff elements -->
+    
+    <h1  class="ss1" >Hi</h1> 
+    <h2 class="ss2">Bye</h2>
+    <button id="btn">Click me</button>
+</body>
+</html>

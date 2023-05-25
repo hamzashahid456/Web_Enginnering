@@ -1,0 +1,39 @@
+body{
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px;
+  border: 1px solid grey;
+}
+
+li {
+    display:inline-block;
+    margin-right: 50px;
+    text-align: center;
+    color: black;
+}
+
+div.logo {
+	text-align: center;
+	position: relative;
+	color: #1122cc;
+	background-color: #7777777; 
+}
+
+ul {
+  list-style-type: none;
+  margin: 100;
+  padding: 100;
+  text-align: center;
+  color: black;
+}
+
+a { 
+	color: inherit; 
+	text-decoration: none;
+} 
+
+
+
+
+

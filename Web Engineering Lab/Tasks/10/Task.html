@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Patient Registration Form</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+
+    <?php
+        $s1 = $s2 = $city = $state = $zip = $area = $phone = $chart = $clerkID = $regLocation = $datetime = $healthCareNumber = $patName = $patstreet1 = $patcity = $patstate = $patzip = "";
+        $s1Err = $s2Err = $cityErr = $stateErr = $zipErr = $areaErr = $phoneErr = $chartErr = $clerkIDErr = $regLocationErr = $datetimeErr = $healthCareNumberErr = $patNameErr = $patstreet1Err = $patcityErr = $patstateErr = $patzipErr = "";
+
+        function test_input($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            if (empty($_POST["street1"])) {
+                $s1Err = "Street address is required";
+            } else {
+                $s1 = test_input($_POST["street1"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z0-9-' .]*$/",$s1)) {
+                    $s1Err = "Only letters, numbers, spaces, periods, and hyphens allowed";
+                }
+            }
+
+            if (!empty($_POST["street2"])) {
+                $s2 = test_input($_POST["street2"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z0-9-' .]*$/",$s2)) {
+                    $s2Err = "Only letters, numbers, spaces, periods, and hyphens allowed";
+                }
+            }
+
+            if (empty($_POST["city"])) {
+                $cityErr = "City is required";
+            } else {
+                $city = test_input($_POST["city"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z-' ]*$/",$city)) {
+                    $cityErr = "Only letters and spaces allowed";
+                }
+            }
+
+            if (empty($_POST["state"])) {
+                $stateErr = "State or province is required";
+            } else {
+                $state = test_input($_POST["state"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z-' ]*$/",$state)) {
+                    $stateErr = "Only letters and spaces allowed";
+                }
+            }
+
+            if (empty($_POST["zip"])) {
+                $zipErr = "Zip code is required";
+            } else {
+                $zip = test_input($_POST["zip"]);
+                // check if zip code is valid
+                if (!preg_match("/^\d{5}(-\d{4})?$/",$zip)) {
+                    $zipErr = "Invalid zip code format";
+                }
+            }
+
+            if (!empty($_POST["area"])) {
+                $area = test_input($_POST["area"]);
+                // check if area code is valid
+                if (!preg_match("/^\d{3}$/",$area)) {
+                    $areaErr = "Invalid area code format";
+                }
+            }
+
+            if (!empty($_POST["phone"])) {
+                $phone = test_input($_POST["phone"]);
+                // check if phone number is valid
+                if (!preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $phone)) {
+                    $phoneErr = "Invalid phone number format (must be in the format XXX-XXXX-XXXX)";
+                }
+            }
+
+            if (empty($_POST["patName])) {
+                $patNameErr = "City is required";
+            } else {
+                $patName = test_input($_POST["patName"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z-' ]*$/",$patName)) {
+                    $patNameErr = "Only letters and spaces allowed";
+                }
+            }
+
+            if (empty($_POST["patstreet1"])) {
+                $patstreet1Err = "Street address is required";
+            } else {
+                $patstreet1 = test_input($_POST["patstreet1"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z0-9-' .]*$/",$patstreet1)) {
+                    $patstreet1Err = "Only letters, numbers, spaces, periods, and hyphens allowed";
+                }
+            }
+
+
+            if (empty($_POST["patcity"])) {
+                $patcityErr = "City is required";
+            } else {
+                $patcity = test_input($_POST["patcity"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z-' ]*$/",$patcity)) {
+                    $patcityErr = "Only letters and spaces allowed";
+                }
+            }
+
+            if (empty($_POST["patstate"])) {
+                $patstateErr = "State or province is required";
+            } else {
+                $patstate = test_input($_POST["patstate"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z-' ]*$/",$patstate)) {
+                    $patstateErr = "Only letters and spaces allowed";
+                }
+            }
+
+            if (empty($_POST["patzip"])) {
+                $patzipErr = "Zip code is required";
+            } else {
+                $patzip = test_input($_POST["patzip"]);
+                // check if zip code is valid
+                if (!preg_match("/^\d{5}(-\d{4})?$/",$patzip)) {
+                    $patzipErr = "Invalid zip code format";
+                }
+            }
+
+        }
+
+
+
+    ?>
+
+    <center><h1>Registration Form</h1></center>
+    <form method="POST" action=" <?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" >
+        <fieldset>
+            <legend>Hospital Address</legend><br>
+            <label>Street Address</label>
+            <input type="text" name="street1" id="street1">
+            <span class="error">* <?php echo $s1Err;?></span><br><br>
+            <label>Street Address Line 2</label>
+            <input type="text" name="street2" id="street2">
+            <span class="error">* <?php echo $s2Err;?></span><br><br>
+            <label>City</label>
+            <input type="text" name="city" id="city">
+            <span class="error">* <?php echo $cityErr;?></span><br><br>
+            <label>State Province</label>
+            <input type="text" name="state" id="state">
+            <span class="error">* <?php echo $stateErr;?></span><br><br>
+            <label>Postal / Zip code</label>
+            <input type="number" name="zip" id="zip">
+            <span class="error">* <?php echo $zipErr;?></span><br><br>
+            <label>Country</label>
+            <select name="country" id="country">
+                <option value="Pakistan">Pakistan</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="United_Kingdom">United Kingdom</option>
+            </select>
+            <br><br>
+        </fieldset>
+        <br><br>
+
+        <fieldset>
+            <legend>Hospital Phone Number</legend><br>
+            <label>Area Code</label>
+            <input type="number" name="area" id="area">
+            <span class="error">* <?php echo $areaErr;?></span>
+            <label>Phone Number</label>
+            <input type="number" name="phone" id="phone">
+            <span class="error">* <?php echo $phoneErr;?></span>
+            <br><br>
+        </fieldset>
+        <br><br>
+        
+        <fieldset>
+            <legend>Chart Number</legend><br>
+            <input type="number" name="chart" id="chart">
+            <br><br>
+        </fieldset>
+        <br><br>
+        
+        <fieldset>
+            <legend>Registration Clerk ID</legend><br>
+            <input type="number" name="clerkID" id="clerkID">
+            <br><br>
+        </fieldset>
+        <br><br>
+        
+        <fieldset>
+            <legend>Registration Location</legend><br>
+            <input type="text" name="regLocation" id="regLocation">
+            <br><br>
+        </fieldset>
+        <br><br>
+        
+        <fieldset>
+            <legend>Registration Date and Time</legend><br>
+            <input type="datetime-local" name="datetime" id="datetime">
+            <br><br>
+        </fieldset>
+        <br><br>
+
+        <fieldset>
+            <legend>Health Care Number</legend><br>
+            <input type="number" name="healthCareNumber" id="healthCareNumber" required>
+            <br><br>
+        </fieldset>
+        <br><br>
+        
+        <fieldset>
+            <legend>Patient Info</legend><br>
+            <label>Patient Name</label>
+            <input type="text" name="patName" id="patName">
+            <br><br>
+        </fieldset>
+        <br><br>
+
+        <fieldset>
+            <legend>Patient Address</legend><br>
+            <label>Street Address</label>
+            <input type="text" name="patstreet1" id="patstreet1">
+            <span class="error">* <?php echo $patstreet1Err;?></span><br><br>
+            <label>City</label>
+            <input type="text" name="patcity" id="patcity">
+            <span class="error">* <?php echo $patcityErr;?></span><br><br>
+            <label>State Province</label>
+            <input type="text" name="patstate" id="patstate">
+            <span class="error">* <?php echo $patstateErr;?></span><br><br>
+            <label>Postal / Zip code</label>
+            <input type="number" name="patzip" id="patzip">
+            <span class="error">* <?php echo $patzipErr;?></span><br><br>
+            <label>Country</label>
+            <select name="patcountry" id="patcountry">
+                <option value="Pakistan">Pakistan</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="United_Kingdom">United Kingdom</option>
+            </select>
+            <br><br>
+        </fieldset>
+        <input type="submit" name="submit" value="Submit">
+        <br><br>
+        <br><br><br><br><br>
+    </form>
+</body>
+</html>
+           
